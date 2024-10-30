@@ -17,6 +17,10 @@ const routes = [
     path: "/weapons",
     component: () => import("@/components/template/WeaponCard.vue"),
   },
+  {
+    path: "/detailweapon",
+    component: () => import("@/components/pages/DetailWeapon.vue"),
+  },
 ];
 
 const router = createRouter({

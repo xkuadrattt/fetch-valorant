@@ -41,19 +41,17 @@
 
 <script setup>
 import { useFetchAgentsStore } from "@/stores/fetchAgents";
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const store = useFetchAgentsStore();
+
+store.fetchAgents();
 
 const fixedDataAgents = computed(() => store.fixAgents);
 
 const handleToDetailAgent = (id) => {
   router.push(`/detailagent?id=${id}`);
 };
-
-onMounted(() => {
-  store.fetchAgents();
-});
 </script>

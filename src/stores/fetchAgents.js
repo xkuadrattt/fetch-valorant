@@ -5,8 +5,10 @@ import { ref } from "vue";
 export const useFetchAgentsStore = defineStore("fetchAgentsStore", () => {
   const agents = ref([]);
   const fixAgents = ref([]);
+  const isLoading = ref(false);
 
   const fetchAgents = async () => {
+    isLoading.value = true;
     try {
       const response = await fetchData("https://valorant-api.com/v1/agents");
       agents.value = response;
@@ -16,12 +18,15 @@ export const useFetchAgentsStore = defineStore("fetchAgentsStore", () => {
       fixAgents.value = [...agents.value];
     } catch (error) {
       console.log(error.message);
+    } finally {
+      isLoading.value = false;
     }
   };
 
   return {
     agents,
     fixAgents,
+    isLoading,
     fetchAgents,
   };
 });

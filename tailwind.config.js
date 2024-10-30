@@ -6,6 +6,9 @@ export default {
       container: {
         center: true,
       },
+      fontFamily: {
+        body: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

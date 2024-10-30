@@ -1,7 +1,9 @@
 <template>
+  <div v-if="store.isLoading" class="text-violet-500">
+    Agents are preparing to battle. Please wait
+  </div>
   <div v-if="agent" class="py-4">
     <h1 class="text-xl sm:text-2xl font-bold mb-6">{{ agent.displayName }}</h1>
-
     <picture>
       <source :srcset="agent.fullPortraitV2" />
       <img
@@ -43,9 +45,14 @@
           </div>
         </div>
       </div>
-      <RouterLink to="/agents">Back to agents</RouterLink>
+      <RouterLink
+        to="/agents"
+        class="text-cyan-600 hover:text-cyan-800 border border-cyan-600 rounded px-2 py-1 mt-4 inline-block"
+        >Back to agents</RouterLink
+      >
     </div>
   </div>
+  <div v-else>We are Sorry. Website will recover soon ❤</div>
 </template>
 <script setup>
 import { useFetchAgentsStore } from "@/stores/fetchAgents";
