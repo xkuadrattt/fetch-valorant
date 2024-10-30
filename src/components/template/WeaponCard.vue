@@ -4,7 +4,7 @@
       Weapons are preparing
     </div>
     <h1 class="text-xl font-bold text-cyan-700 my-4">Weapons</h1>
-    <div class="grid py-8 gap-4 grid-auto-fill bg-stone-100">
+    <div class="grid py-8 gap-4 grid-auto-custom bg-stone-100">
       <div
         class="shadow-lg rounded-lg p-4"
         v-for="weapon in store.weapons"
@@ -84,7 +84,7 @@ onMounted(() => {
 </script>
 
 <style>
-.grid-auto-fill {
+.grid-auto-custom {
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 </style>
